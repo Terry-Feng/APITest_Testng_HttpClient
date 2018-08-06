@@ -1,0 +1,18 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="api test" verbose="1" preserve-order="true" parallel="false">
+    <test name="test suite">
+        <parameter name="excelPath" value="src/resources/test-data.xlsx"></parameter>
+        <parameter name="sheet" value="Sheet1"></parameter>
+        <classes>
+            <class name="api.APITest">
+                <methods>
+                    <include name="apiTest"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter"></listener>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"></listener>
+    </listeners>
+</suite>

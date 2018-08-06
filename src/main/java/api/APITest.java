@@ -1,22 +1,32 @@
 package api;
 
+import api.beans.TestDataBean;
+import api.utils.ExcelUtil;
 import org.testng.ITestContext;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class APITest {
+    private List<TestDataBean> testData = new ArrayList<>();
 
+    @Parameters({"excelPath", "sheet"})
     @BeforeTest
-    public void init() {
-        //TODO read test cases from excel
+    public void init(@Optional("") String excelPath, @Optional("") String sheet) {
+        testData = ExcelUtil.readTestDataFromExcel(TestDataBean.class, excelPath, sheet);
     }
 
     @DataProvider(name="test_data")
-    protected Object[][] testDataProvider(ITestContext context) {
-        //TODO prepare test data
-        return null;
+    protected Iterator<Object[]> testDataProvider(ITestContext context) {
+        List<Object[]> dataProvider = new ArrayList<Object[]>();
+        for (TestDataBean data : testData) {
+            if (data.isRun()) {
+                dataProvider.add(new Object[] { data });
+            }
+        }
+        return dataProvider.iterator();
     }
 
     @Test(dataProvider = "test_data")
