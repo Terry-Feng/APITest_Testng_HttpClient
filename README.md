@@ -18,9 +18,9 @@ Each row in the excel is a test case.
 
 ### To check test report
 Run with maven:<br>
-`{workspace}/target/surefire-report/html/index.html<br>`
+`{workspace}/target/surefire-report/html/index.html`<br>
 Run with Testng:<br>
-`{workspace}/test-output/html/index.html<br>`
+`{workspace}/test-output/html/index.html`
 
 ### Main dependencies in Pom
 Testng<br>
@@ -31,6 +31,6 @@ reportng<br>
 #### please use java 8 or higher version
 
 #### To be optimized：
-** http request
-** report format
-** test cases
+  * http request
+  * report format
+  * test cases
