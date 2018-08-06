@@ -82,6 +82,9 @@ public class ExcelUtil {
                         continue;
                     T t = clazz.newInstance();
                     List<Object> data = readRow(row);
+                    while (data.size() < header.size()) {
+                        data.add("");
+                    }
                     setValue(t, header, data);
                     excelData.add(t);
                 } catch (IllegalAccessException e) {

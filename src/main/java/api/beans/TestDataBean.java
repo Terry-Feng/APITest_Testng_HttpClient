@@ -8,8 +8,7 @@ public class TestDataBean {
     private String suffix;
     private String body;
     private int status;
-    private String accept;
-    private String contentType;
+    private String header;
     private String verifyField;
     private boolean run;
 
@@ -69,20 +68,12 @@ public class TestDataBean {
         this.status = status;
     }
 
-    public String getAccept() {
-        return accept;
+    public String getHeader() {
+        return header;
     }
 
-    public void setAccept(String accept) {
-        this.accept = accept;
-    }
-
-    public String getContentType() {
-        return contentType;
-    }
-
-    public void setContentType(String contentType) {
-        this.contentType = contentType;
+    public void setHeader(String header) {
+        this.header = header;
     }
 
     public String getVerifyField() {

@@ -1,7 +1,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="api test" verbose="1" preserve-order="true" parallel="false">
+<suite name="api test" verbose="1">
     <test name="test suite">
-        <parameter name="excelPath" value="src/resources/test-data.xlsx"></parameter>
+        <parameter name="excelPath" value="src/main/resources/test_data.xlsx"></parameter>
         <parameter name="sheet" value="Sheet1"></parameter>
         <classes>
             <class name="api.APITest">
